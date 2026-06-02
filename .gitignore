@@ -1,0 +1,38 @@
+# Data and trained weights (download separately — see DATASET.md)
+/dataset/
+/models/*.keras
+/models/*.tflite
+
+# TF.js weights (run export script after training)
+/tfjs-web-app/public/model/*.bin
+/tfjs-web-app/public/model/model.json
+
+# Node
+/tfjs-web-app/node_modules/
+npm-debug.log*
+yarn-error.log*
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+
+# IDE / OS
+.idea/
+.vscode/
+*.swp
+.DS_Store
+Thumbs.db
+
+# Archives and large local artifacts
+*.zip
+*.7z
+*.exe
+
+# Course docs (optional local only)
+*.docx
+
+# Temp eval
+/results/_tfjs_eval_paths.txt

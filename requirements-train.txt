@@ -1,0 +1,4 @@
+# Training (GPU).
+tensorflow>=2.16,<2.20
+# Optional — TF.js graph export (Keras 3): pip install tensorflowjs==4.20.0 --no-deps
+#   then jax==0.4.23 jaxlib==0.4.23 ; see scripts/export_keras_to_tfjs.py

@@ -1,0 +1,281 @@
+{
+  "environment": {
+    "tensorflow": "2.21.0",
+    "gpu_visible": [],
+    "device_note": "CPU; same val set and preprocessing (x/127-1) for all artifacts"
+  },
+  "dataset": {
+    "val_dir": "E:\\cps4981\\project\\dataset\\val",
+    "n_images": 8210,
+    "max_per_class": null
+  },
+  "models": {
+    "fire_smoke.keras": {
+      "artifact": "fire_smoke.keras",
+      "type": "keras",
+      "accuracy": {
+        "top1_accuracy": 0.977,
+        "confusion_matrix": [
+          [
+            2803,
+            27,
+            30
+          ],
+          [
+            28,
+            2406,
+            56
+          ],
+          [
+            25,
+            23,
+            2812
+          ]
+        ],
+        "per_class": {
+          "normal": {
+            "precision": 0.9814,
+            "recall": 0.9801,
+            "f1": 0.9808,
+            "support": 2860
+          },
+          "smoke": {
+            "precision": 0.9796,
+            "recall": 0.9663,
+            "f1": 0.9729,
+            "support": 2490
+          },
+          "fire": {
+            "precision": 0.9703,
+            "recall": 0.9832,
+            "f1": 0.9767,
+            "support": 2860
+          }
+        }
+      },
+      "hazard_alert": {
+        "threshold": 0.55,
+        "alert_precision": 0.9912,
+        "alert_recall": 0.9864,
+        "false_alarm_rate_on_normal": 0.0164,
+        "miss_rate_on_smoke_or_fire": 0.0136,
+        "confusion_alert": {
+          "tp": 5277,
+          "fp": 47,
+          "fn": 73,
+          "tn": 2813
+        }
+      },
+      "latency_ms": {
+        "mean_ms": 65.54,
+        "std_ms": 6.45,
+        "p95_ms": 79.16,
+        "fps": 15.3
+      },
+      "agreement_with_keras_top1": 1.0
+    },
+    "fire_smoke_float32.tflite": {
+      "artifact": "fire_smoke_float32.tflite",
+      "type": "tflite",
+      "accuracy": {
+        "top1_accuracy": 0.977,
+        "confusion_matrix": [
+          [
+            2803,
+            27,
+            30
+          ],
+          [
+            28,
+            2406,
+            56
+          ],
+          [
+            25,
+            23,
+            2812
+          ]
+        ],
+        "per_class": {
+          "normal": {
+            "precision": 0.9814,
+            "recall": 0.9801,
+            "f1": 0.9808,
+            "support": 2860
+          },
+          "smoke": {
+            "precision": 0.9796,
+            "recall": 0.9663,
+            "f1": 0.9729,
+            "support": 2490
+          },
+          "fire": {
+            "precision": 0.9703,
+            "recall": 0.9832,
+            "f1": 0.9767,
+            "support": 2860
+          }
+        }
+      },
+      "hazard_alert": {
+        "threshold": 0.55,
+        "alert_precision": 0.9912,
+        "alert_recall": 0.9864,
+        "false_alarm_rate_on_normal": 0.0164,
+        "miss_rate_on_smoke_or_fire": 0.0136,
+        "confusion_alert": {
+          "tp": 5277,
+          "fp": 47,
+          "fn": 73,
+          "tn": 2813
+        }
+      },
+      "latency_ms": {
+        "mean_ms": 5.45,
+        "std_ms": 0.3,
+        "p95_ms": 5.95,
+        "fps": 183.5
+      },
+      "agreement_with_keras_top1": 1.0
+    },
+    "fire_smoke_dynamic.tflite": {
+      "artifact": "fire_smoke_dynamic.tflite",
+      "type": "tflite",
+      "accuracy": {
+        "top1_accuracy": 0.9778,
+        "confusion_matrix": [
+          [
+            2810,
+            20,
+            30
+          ],
+          [
+            27,
+            2405,
+            58
+          ],
+          [
+            24,
+            23,
+            2813
+          ]
+        ],
+        "per_class": {
+          "normal": {
+            "precision": 0.9822,
+            "recall": 0.9825,
+            "f1": 0.9823,
+            "support": 2860
+          },
+          "smoke": {
+            "precision": 0.9824,
+            "recall": 0.9659,
+            "f1": 0.9741,
+            "support": 2490
+          },
+          "fire": {
+            "precision": 0.9697,
+            "recall": 0.9836,
+            "f1": 0.9766,
+            "support": 2860
+          }
+        }
+      },
+      "hazard_alert": {
+        "threshold": 0.55,
+        "alert_precision": 0.993,
+        "alert_recall": 0.9871,
+        "false_alarm_rate_on_normal": 0.0129,
+        "miss_rate_on_smoke_or_fire": 0.0129,
+        "confusion_alert": {
+          "tp": 5281,
+          "fp": 37,
+          "fn": 69,
+          "tn": 2823
+        }
+      },
+      "latency_ms": {
+        "mean_ms": 23.17,
+        "std_ms": 0.76,
+        "p95_ms": 24.55,
+        "fps": 43.2
+      },
+      "agreement_with_keras_top1": 0.9952
+    },
+    "fire_smoke_int8.tflite": {
+      "artifact": "fire_smoke_int8.tflite",
+      "type": "tflite",
+      "accuracy": {
+        "top1_accuracy": 0.975,
+        "confusion_matrix": [
+          [
+            2803,
+            33,
+            24
+          ],
+          [
+            28,
+            2412,
+            50
+          ],
+          [
+            43,
+            27,
+            2790
+          ]
+        ],
+        "per_class": {
+          "normal": {
+            "precision": 0.9753,
+            "recall": 0.9801,
+            "f1": 0.9777,
+            "support": 2860
+          },
+          "smoke": {
+            "precision": 0.9757,
+            "recall": 0.9687,
+            "f1": 0.9722,
+            "support": 2490
+          },
+          "fire": {
+            "precision": 0.9742,
+            "recall": 0.9755,
+            "f1": 0.9748,
+            "support": 2860
+          }
+        }
+      },
+      "hazard_alert": {
+        "threshold": 0.55,
+        "alert_precision": 0.9913,
+        "alert_recall": 0.9828,
+        "false_alarm_rate_on_normal": 0.0161,
+        "miss_rate_on_smoke_or_fire": 0.0172,
+        "confusion_alert": {
+          "tp": 5258,
+          "fp": 46,
+          "fn": 92,
+          "tn": 2814
+        }
+      },
+      "latency_ms": {
+        "mean_ms": 2.6,
+        "std_ms": 0.14,
+        "p95_ms": 2.88,
+        "fps": 385.0
+      },
+      "agreement_with_keras_top1": 0.9878
+    }
+  },
+  "tfjs_graph": {
+    "status": "skipped",
+    "reason": "node:internal/modules/cjs/loader:1386\n  throw err;\n  ^\n\nError: Cannot find module '@tensorflow/tfjs'\nRequire stack:\n- E:\\cps4981\\project\\scripts\\evaluate_tfjs_subset.js\n    at Function._resolveFilename (node:internal/modules/cjs/loader:1383:15)\n    at defaultResolveImpl (node:internal/modules/cjs/loader:1025:19)\n    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1030:22)\n    at Function._load (node:internal/modules/cjs/loader:1192:37)\n    at TracingChannel.traceSync (node:diagnostic"
+  },
+  "model_size_mb": {
+    "fire_smoke.keras": 9.21,
+    "fire_smoke_float32.tflite": 8.48,
+    "fire_smoke_dynamic.tflite": 2.41,
+    "fire_smoke_int8.tflite": 2.6,
+    "tfjs_public_model_total_mb": 8.57
+  }
+}

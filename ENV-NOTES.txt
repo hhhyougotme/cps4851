@@ -1,0 +1,53 @@
+Edge AI wildfire prototype — local environment notes
+====================================================
+
+1) Frontend (IBM tfjs-web-app fork)
+   Path: e:\cps4981\project\tfjs-web-app
+   Uses system Node.js (not Anaconda).
+
+   Install deps (skip if already done):
+     cd e:\cps4981\project\tfjs-web-app
+     npm install
+
+   Dev server (Express :5000 + React :3000):
+     npm run start-dev
+   Open: http://localhost:3000
+
+   If stuck on "Loading Model": often missing model.json under public\model\.
+   Default CDN MobileNet works when online; restart start-dev and hard-refresh after code changes.
+   For your fire/smoke model: put TF.js files in public\model\ and create tfjs-web-app\.env:
+     REACT_APP_MODEL_URL=/model/model.json
+     REACT_APP_NUM_CLASSES=3
+     REACT_APP_MODEL_FORMAT=graph
+   Then restart npm run start-dev.
+
+2) Dataset and training
+   Layout:
+     dataset\train\normal, smoke, fire
+     dataset\val\normal, smoke, fire   (optional; script can split 20% from train)
+   Conda: pip install -r requirements-train.txt
+   From project root:
+     python scripts\train_fire_smoke_keras.py --epochs 8
+   See scripts\README.txt
+   Results (report): RESULTS.md and results\evaluation_report.md
+
+3) Frontend 3-class mode (after export to public\model\)
+   tfjs-web-app\.env:
+     REACT_APP_MODEL_URL=/model/model.json
+     REACT_APP_NUM_CLASSES=3
+     REACT_APP_MODEL_FORMAT=graph
+   Restart start-dev; clear IndexedDB or use private browsing to avoid stale model cache.
+
+   package.json: start-dev uses npm run start (Yarn not required).
+   Node 17+: cross-env NODE_OPTIONS=--openssl-legacy-provider on start/build for Webpack OpenSSL.
+
+4) Optional conda env pytorch-gpu
+   For PyTorch experiments only. For TensorFlow/Keras + TF.js export, prefer a dedicated env
+   (e.g. conda create -n tf-train python=3.10) or Colab for training + local export script.
+   The web app does not need conda; only Python train/export scripts do.
+
+5) Default IBM MobileNet download (optional)
+   In tfjs-web-app with a TF env that has tensorflowjs:
+     python download_model.py   (removed from repo — use export_keras_to_tfjs.py instead)
+
+Optional: npm audit reports old dependency issues; fine for course prototype; upgrade before any production deploy.
